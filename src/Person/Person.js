@@ -1,5 +1,12 @@
 import React from 'react'
 
-const person = () => <p>I'm a human person</p>
+const person = (props) => (
+<div>
+    <p>
+        I'm {props.name} and I'm {props.age}
+        {props.children ? ` (${props.children})` : '__'}
+    </p>
+</div>
+)
 
 export default person
