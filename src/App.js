@@ -22,6 +22,16 @@ class App extends Component {
     })
   }
 
+  nameSwitch = e => {
+    this.setState({
+      persons: [
+        { name: 'Niels', age: 50 },
+        { name: 'Laury', age: 48 },
+        { name: e.target.value, age: 30 } 
+      ]
+    })
+  }
+
   render() {
     return (
       <div className="App">
@@ -38,7 +48,8 @@ class App extends Component {
         <Person
           name={this.state.persons[2].name}
           age={this.state.persons[2].age}
-          click={this.switcher.bind(this, 'Apekop')} />
+          click={this.switcher.bind(this, 'Apekop')}
+          changed={this.nameSwitch} />
       </div>
     )
 
