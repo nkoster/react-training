@@ -33,10 +33,22 @@ class App extends Component {
   }
 
   render() {
+    
+    const style = {
+      backgroundColor: 'white',
+      font: 'inherit',
+      border: '1px solid blue',
+      padding: '8px',
+      cursor: 'pointer'
+    }
+
     return (
       <div className="App">
         <h1>Aap!</h1>
-        <button onClick={() => this.switcher('Gijs')}>Switch Name</button>
+        <button
+          onClick={() => this.switcher('Gijs')}
+          style={style}
+        >Switch Name</button>
         <h3>okay</h3>
         <Person
           name={this.state.persons[0].name}
