@@ -47,14 +47,9 @@ class App extends Component {
       cursor: 'pointer'
     }
 
-    return (
-      <div className="App">
-        <h1>Appp!</h1>
-        <button
-          onClick={this.toggle}
-          style={style}
-        >Switch Name</button>
-        { this.state.showPersons ?
+    let persons = null
+    if (this.state.showPersons) {
+      persons = (
         <div>
           <h3>okay</h3>
           <Person
@@ -70,7 +65,16 @@ class App extends Component {
             click={this.switcher.bind(this, 'Apekop')}
             changed={this.nameSwitch} />
         </div>
-        : null }
+      )
+    }
+    return (
+      <div className="App">
+        <h1>Appp!</h1>
+        <button
+          onClick={this.toggle}
+          style={style}
+        >Switch Name</button>
+        {persons}
       </div>
     )
 
