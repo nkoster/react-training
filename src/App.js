@@ -12,17 +12,6 @@ class App extends Component {
     showPersons: false
   }
 
-  switcher = (newName) => {
-    console.log('CLICK')
-    this.setState({
-      persons: [
-        { name: newName, age: 50 },
-        { name: 'Laury', age: 48 },
-        { name: 'Petra', age: 30 } 
-      ]
-    })
-  }
-
   nameSwitch = e => {
     this.setState({
       persons: [
@@ -30,6 +19,14 @@ class App extends Component {
         { name: 'Laury', age: 48 },
         { name: e.target.value, age: 30 } 
       ]
+    })
+  }
+
+  deletePerson = (personIndex) => {
+    // const persons = [...this.state.persons]
+    // persons.splice(personIndex, 1)
+    this.setState({
+      persons: [...this.state.persons].slice(personIndex, 1)
     })
   }
 
@@ -52,21 +49,19 @@ class App extends Component {
       persons = (
         <div>
           <h3>okay</h3>
-          <Person
-            name={this.state.persons[0].name}
-            age={this.state.persons[0].age}>programmer
-          </Person>
-          <Person
-            name={this.state.persons[1].name}
-            age={this.state.persons[1].age} />
-          <Person
-            name={this.state.persons[2].name}
-            age={this.state.persons[2].age}
-            click={this.switcher.bind(this, 'Apekop')}
-            changed={this.nameSwitch} />
+          {this.state.persons.map((person, index) => {
+            return (
+              <Person
+                click={() => this.deletePerson(index)}
+                name={person.name}
+                age={person.age}
+              />
+            )
+          })}
         </div>
       )
     }
+
     return (
       <div className="App">
         <h1>Appp!</h1>
