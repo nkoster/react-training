@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import './App.css'
-import Radium from 'radium'
+import Radium, { StyleRoot } from 'radium'
 import Person from './Person/Person'
 
 class App extends Component {
@@ -83,14 +83,16 @@ class App extends Component {
     if (this.state.persons.length <=1 ) classes.push('bold')
 
     return (
-      <div className="App">
-        <p className={classes.join(' ')}>Appp!</p>
-        <button
-          onClick={this.toggle}
-          style={style}
-        >Switch Name</button>
-        {persons}
-      </div>
+      <StyleRoot>
+        <div className="App">
+          <p className={classes.join(' ')}>Appp!</p>
+          <button
+            onClick={this.toggle}
+            style={style}
+          >Switch Name</button>
+          {persons}
+        </div>
+      </StyleRoot>
     )
 
   }
