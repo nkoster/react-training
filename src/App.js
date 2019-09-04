@@ -25,7 +25,7 @@ class App extends Component {
     })
   }
 
-  deletePerson = (personIndex) => {
+  deletePerson = personIndex => {
     const persons = [...this.state.persons]
     persons.splice(personIndex, 1)
     this.setState({
