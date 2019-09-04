@@ -2,8 +2,6 @@ import React, { Component } from 'react'
 import classes from './App.module.css'
 import Person from './Persons/Person/Person'
 
-// commit 666
-
 class App extends Component {
   state = {
     persons: [
