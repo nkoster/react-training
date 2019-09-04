@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import './App.css'
+import classes from './App.module.css'
 import Person from './Person/Person'
 
 class App extends Component {
@@ -39,46 +39,41 @@ class App extends Component {
 
   render() {
     
-    const style = {
-      backgroundColor: 'green',
-      color: 'white',
-      font: 'inherit',
-      border: '1px solid blue',
-      padding: '8px',
-      cursor: 'pointer'
-    }
-
     let persons = null
+    let btnClass = ''
+
     if (this.state.showPersons) {
       persons = (
         <div>
           <h3>okay</h3>
-          {this.state.persons.map((person, index) => {
-            return (
-              <Person
-                click={() => this.deletePerson(index)}
-                name={person.name}
-                age={person.age}
-                key={person.id}
-                changed={event => this.updateName(event, person.id)}
-              />
-            )
-          })}
+          {
+            this.state.persons.map((person, index) => {
+              return (
+                <Person
+                  click={() => this.deletePerson(index)}
+                  name={person.name}
+                  age={person.age}
+                  key={person.id}
+                  changed={event => this.updateName(event, person.id)}
+                />
+              )
+            })
+          }
         </div>
       )
-      style.backgroundColor = 'red'
+      btnClass = classes.Red
     }
 
-    let classes = []
-    if (this.state.persons.length <=2 ) classes.push('red')
-    if (this.state.persons.length <=1 ) classes.push('bold')
+    let assignedClasses = []
+    if (this.state.persons.length <=2 ) assignedClasses.push(classes.red)
+    if (this.state.persons.length <=1 ) assignedClasses.push(classes.bold)
 
     return (
-      <div className="App">
-        <p className={classes.join(' ')}>Appp!</p>
+      <div className={classes.App}>
+        <p className={assignedClasses.join(' ')}>Appp!</p>
         <button
           onClick={this.toggle}
-          style={style}
+          className={btnClass}
         >Switch Name</button>
         {persons}
       </div>
