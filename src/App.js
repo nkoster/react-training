@@ -50,14 +50,12 @@ class App extends Component {
           {
             this.state.persons.map((person, index) => {
               return (
-                <ErrorBoundary key={person.id} >
-                  <Person
-                    click={() => this.deletePerson(index)}
-                    name={person.name}
-                    age={person.age}
-                    changed={event => this.updateName(event, person.id)}
-                  />
-                </ErrorBoundary>
+                <Person
+                  click={() => this.deletePerson(index)}
+                  name={person.name}
+                  age={person.age}
+                  changed={event => this.updateName(event, person.id)}
+                />
               )
             })
           }
