@@ -41,19 +41,17 @@ class App extends Component {
   render() {
     
     let persons = null
-    let btnClass = ''
-
     if (this.state.showPersons) {
       persons = <Persons
             persons={this.state.persons}
             clicked={this.deletePerson}
             changed={this.updateName} />
-      btnClass = classes.Red
     }
 
     return (
       <div className={classes.App}>
         <Cockpit
+          title={this.props.appTitle}
           showPersons={this.state.showPersons}
           toggle={this.toggle}
           persons={this.state.persons}
