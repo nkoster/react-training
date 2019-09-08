@@ -8,7 +8,7 @@ const Cockpit = props => {
     useEffect(() => {
         console.log('[Cockpit.js] useEffect')
         setTimeout(() => {
-            alert('aap')
+            //alert('aap')
         }, 1000)
     }, [props.persons]) // Use empty array for first time only
     if (props.showPersons) {
