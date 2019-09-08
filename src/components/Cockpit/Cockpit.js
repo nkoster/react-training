@@ -2,18 +2,23 @@ import React, { useEffect } from 'react'
 import classes from './Cockpit.module.css'
 
 const Cockpit = props => {
-
     const assignedClasses = []
     let btnClass = ''
     useEffect(() => {
         console.log('[Cockpit.js] useEffect')
         setTimeout(() => {
-            //alert('aap')
+            alert('aap')
         }, 1000)
         return () => {  // functional component cleanup way
             console.log('[Cockpit.js] Cleaning lady')
         }
-    }, [props.persons]) // Use empty array for first time only
+    }, []) // Use empty array for first time only
+    useEffect(() => {
+        console.log('[Cockpit.js] 2nd useEffect in action')
+        return () => {
+            console.log('[Cockpit.js] 2nd cleanup')
+        }
+    })
     if (props.showPersons) {
         btnClass = classes.Red
     }
