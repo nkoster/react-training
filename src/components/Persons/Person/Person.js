@@ -6,8 +6,8 @@ import PropTypes from 'prop-types'
 
 class Person extends Component {
 
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
         this.inputElRef = React.createRef()
     }
 
