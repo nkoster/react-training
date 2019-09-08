@@ -10,6 +10,9 @@ const Cockpit = props => {
         setTimeout(() => {
             //alert('aap')
         }, 1000)
+        return () => {  // functional component cleanup way
+            console.log('[Cockpit.js] Cleaning lady')
+        }
     }, [props.persons]) // Use empty array for first time only
     if (props.showPersons) {
         btnClass = classes.Red
