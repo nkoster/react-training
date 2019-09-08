@@ -7,7 +7,10 @@ const Cockpit = props => {
     let btnClass = ''
     useEffect(() => {
         console.log('[Cockpit.js] useEffect')
-    })
+        setTimeout(() => {
+            alert('aap')
+        }, 1000)
+    }, [props.persons]) // Use empty array for first time only
     if (props.showPersons) {
         btnClass = classes.Red
     }
