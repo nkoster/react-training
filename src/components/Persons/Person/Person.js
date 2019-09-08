@@ -5,6 +5,9 @@ import withClass from '../../../hoc/withClass'
 import PropTypes from 'prop-types'
 
 class Person extends Component {
+    componentDidMount() {
+        this.inputEl.focus()
+    }
     render() {
         console.log('[Person.js] rendering...')
         return (
@@ -15,6 +18,7 @@ class Person extends Component {
                 </p>,
                 <input
                     type="text"
+                    ref={el => { this.inputEl = el}}
                     onChange={this.props.changed}
                     value={this.props.name}
                 />
