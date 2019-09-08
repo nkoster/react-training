@@ -17,7 +17,8 @@ class App extends Component {
         { id: 'c', name: 'Henk', age: 41 }
       ],
       showPersons: false,
-      showCockpit: true
+      showCockpit: true,
+      changeCount: 0
     }
   }
 
@@ -47,8 +48,11 @@ class App extends Component {
     person.name = event.target.value
     const persons = [...this.state.persons]
     persons[personIndex] = person
-    this.setState({
-      persons: persons
+    this.setState((prevState, props) => {
+      return {
+        persons: persons,
+        changeCount: prevState.changeCount + 1
+      }
     })
   }
 
