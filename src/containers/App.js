@@ -83,7 +83,7 @@ class App extends Component {
             title={this.props.appTitle}
             showPersons={this.state.showPersons}
             toggle={this.toggle}
-            persons={this.state.persons}
+            personsLength={this.state.persons.length}
           /> : null
         }
         {persons}
