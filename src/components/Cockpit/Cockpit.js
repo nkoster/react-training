@@ -32,10 +32,13 @@ const Cockpit = props => {
         <div className={classes.Cockpit}>
             <p className={assignedClasses.join(' ')}>{props.title}</p>
             <button
-            ref={toggleButtonRef}
-            onClick={props.toggle}
-            className={btnClass}
-            >Switch Name</button>
+                ref={toggleButtonRef}
+                onClick={props.toggle}
+                className={btnClass} >
+            Switch Name</button>
+            <button
+                onClick={props.login} >
+            Login</button>
         </div>
     )
 }
