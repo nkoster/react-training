@@ -1,13 +1,17 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useRef } from 'react'
 import classes from './Cockpit.module.css'
 
 const Cockpit = props => {
+
+    const toggleButtonRef = useRef(null)
+
     const assignedClasses = []
     let btnClass = ''
     useEffect(() => {
         console.log('[Cockpit.js] useEffect')
         setTimeout(() => {
             alert('aap')
+            toggleButtonRef.current.click()
         }, 1000)
         return () => {  // functional component cleanup way
             console.log('[Cockpit.js] Cleaning lady')
@@ -28,6 +32,7 @@ const Cockpit = props => {
         <div className={classes.Cockpit}>
             <p className={assignedClasses.join(' ')}>{props.title}</p>
             <button
+            ref={toggleButtonRef}
             onClick={props.toggle}
             className={btnClass}
             >Switch Name</button>
